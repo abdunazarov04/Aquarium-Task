@@ -1,124 +1,114 @@
-Aquarium, which is common in multithreading in java.
+---
 
-**⚠️Sizda ortiqcha 15 daqiqa vaqtingiz bo'lsa buni o'qishni maslahat beraman.⚠️**
+# Aquarium Multithreading Simulation in Java
 
-**UZ** - **Java** dasturlash tilida Thread, umuman olganda Multithreading juda ko'p qo'llaniladi.
+## ⚠️ **If you have an extra 15 minutes, I highly recommend reading this.** ⚠️
 
-_Nega?_
+### Overview
 
-**Sababi Multithreading dastur samaradorligini tubdan o'zgartrib yuborishi mumkin**
+In **Java** programming, multithreading is widely used. 
 
-Qanday ?
-O'zi thread nima ?,
-Bu faqat javada shundaymi ?
-Nega multithreading deyiladi ?,
-Shu kabi savollar sizda bo'lsa shoshilmang tariflashga harakat qilaman
+**Why?**
 
-Thread to'g'ridan to'gri tarjima qilinganda ip deb aytiladi ammo biz uni tarjima qilmasdan thread deb ketsak odobdan bo'ladi 😊
-threadlarni vazifasi sodda qilib aytdanda bir ish buyurilsa uni bajarish, yani aytilgan ishni bajaruvchi ekan.
+**Because multithreading can fundamentally improve the efficiency of your application.**
 
-Multithreading esa threadlarga berilgan tarifni murakkabroq ko'rinishi, 1 ta threadni o'zi aytilgan 1 ishni 10 daqiqada bajarsa
-multithreadingda bir qancha threadlar aytilgan 1 ichni 1 daqiqada bajaradi. 
+### How?
 
-_Nima o'zgardi ?_
+- **What is a thread?**
+- **Is it specific to Java?**
+- **Why is it called multithreading?**
 
-Vaqtdan yutildi, yani threadlar ishchi sifatida tasvirlasak 1 ishchi 1 ishni 10 daqiqada bajarsa bir qancha ishchilar 1 ta ishni 1 daqiqada bajaradi,
-adashmasam ish tezligi 10 yoki 9 barobarga oshdi.
+If you have similar questions, don't worry—I will explain everything.
 
-Threadlar faqat javada mavjudmi ?
-Yo'q albatta threadlar ko'plab dasturlash tillarida mavjud.
+In simple terms, a **thread** is a sequence of instructions that can be executed concurrently with other threads. In a multithreaded program, multiple threads work together to perform tasks simultaneously, improving performance. For example, if one thread can complete a task in 10 minutes, using multiple threads could complete it in 1 minute.
 
-Endi asosiy mavzuga to'xtalib o'tamiz, Aquarium topshirig'i bu biroz murakkab va threadlar bilan ishlash shart bo'lgan topshiriglar sirasiga kiradi.
-----------------------------------------------------------------------------------------------------
-**Topshiriq mazmuni:**
+**The difference?**  
+You gain time efficiency—like hiring multiple workers to finish a job much faster.
 
-    Teshaboy ukasi Boltaboy ga uning tug’ilgan kuniga akvarium bilan baliqlar sovg’a qildi.
-    Bir necha kundan so’ng Teshaboyning o’zi ham baliqlarga qiziqa boshladi va o’ziga ham akvarium bilan baliqlar sotib oldi.
-    Lekin baliqlarga qarash uchun Teshaboyning yetarlicha bo’sh vaqti yo’q edi. 
-    Shuning uchun Teshaboy akvariumda sodir bo’layotgan har bir jarayonni yozib boruvchi dastur tuzishga qaror qildi va yordam uchun bizga murojaat qildi.
-    Bizning vazifangiz Teshaboyga dastur tuzishda yordam berish.
-    
-**Dasturga bo’lgan talablar:**
+### Are threads exclusive to Java?
 
-  - Barcha qiymatlar Random orqali aniqlanishi kerak.
-  - Collections lardan foydalanish kerak.
-  - Har bir baliq alohida Thread da bo’lishi kerak.
-  - Har bir sodir bo’layotgan jarayon haqida Console da xabar chiqish kerak.
+No, threads are available in many programming languages.
 
-**Eslatma:**
+---
 
-  - Dastur tuzish vaqtida akvariumda N ta erkak va M ta urg’ochi baliqlar bor edi. N va M
-    qiymati ham Random orqali aniqlanadi.
-  - Har bir baliq o’zining yashash muddati mavjud va uning qiymati Random orqali
-    aniqlanadi.
-  - Agar erkak va urg’ochi baliqlar uchrashib qolishsa ular nasl qoldirishi kerak. Yangi
-    tug'ilgan har bir baliqning jinsi Random orqali aniqlanadi.
+## Aquarium Simulation Task
 
-----------------------------------------------------------------------------------------------------
+This project simulates an aquarium where multiple fish (each represented by a thread) live, interact, and reproduce based on random events. You will implement a multithreaded Java application that tracks these fish and their activities.
 
-_Biz talablarni ko'rib chiqdik va yechim qidirishga tushdik._
+### Task Description
 
-Bizda asosiy 3 ta class mavjud 
-                              {Fish, Aquarium, Main}
+Teshaboy gifted his younger brother Boltaboy an aquarium with fish for his birthday. After a few days, Teshaboy himself became interested in the fish and bought his own aquarium. However, he didn’t have enough time to take care of them. So, he decided to write a program to monitor the activities in the aquarium and sought our help to build it.
 
-Class - Fish
+### Requirements:
 
-    Bu class bizga baliq yaratilishni taminlovchi sifatida hizmat qiladi.
-    
-Class - Aquarium
+1. Random values should determine all fish characteristics.
+2. Use **Collections**.
+3. Each fish should run in a separate **Thread**.
+4. Every event in the aquarium should be logged to the **Console**.
 
-    Bu class bizga Fishlarni yani baliqlarni jamlash, tekshirish, yaratish va o'chirish uchun kerak.
-    
-Class - Main 
+### Additional Notes:
 
-    Bu bizning asosiy classimiz Fish hamda Aquariumni yaratish va dasturni ishga tushirish uchun yordam beradi.
+- There are `N` male and `M` female fish in the aquarium, both determined randomly.
+- Each fish has a lifespan, also determined randomly.
+- If male and female fish meet, they can reproduce, with the gender of the newborn being randomly assigned.
 
+---
 
-**Endi har bir classda qanday functionlari mavjudligi haqida.**
+## Class Breakdown
 
-_Fish classi._
+### 1. **Fish Class**
 
-  Bizga shart davomida aytilganki har bir baliq alohida bir thread bo'lib yaratilishi kerak bunda biz **Fish extends Thread _yoki_ Runnable** dan foydalanishimiz mumkin.
+This class is responsible for creating individual fish.
 
-Asosiy o'zgaruvchilar.
+**Core Variables:**
+- `fishGender` - Gender of the fish.
+- `fishLifeSpan` - The lifespan of the fish.
+- `aquarium` - The aquarium the fish belongs to.
 
-        _fishGender - baliq jinsi.
-        fishLifeSpan - baliq umri.
-        akvarium - baliqning akvariumi._
-va biz bu o'zgaruvchilarga qiymatlarni Constructor orqali berishga majburmiz.
+Values are assigned through the **constructor**.
 
-Asosiy methodlar.
+**Core Methods:**
+- `getFishGender()` - Returns the fish's gender.
+- `run()` - Overridden method for thread execution. Fish actions occur here.
 
-       getFishGender() - baliqning jinsini olish yoki tekshirish uchun kerak.
-       run() thread ishga tushishi uchun @Override qilinadi.
-       agar run methodidagi logikaga qiziqsangiz koddan ko'rishingiz mumkin.
-       
-_Aquarium classi._
+### 2. **Aquarium Class**
 
-  Berilgan shart bo'yicha talablarni bajarishni boshlaymiz.
-  
-Asosiy o'zgaruvchilar.
+The `Aquarium` class handles the collection, creation, and deletion of fish, as well as simulating their interactions.
 
-      listOfFish - bu baliqlarni saqlash uchun List turida CopyOnWriteArrayList (nega boshqa thread safe Collectionlar yo'qmi?
-      
-      bor albatta misol uchun Vector collectoni bir qancha ustunliklari mavjuda ammo bizga kerakli natija bera olmasligi mukin.
-      
-      Agar ko‘p o‘qish va kam yozish operatsiyalari mavjud bo‘lsa, CopyOnWriteArrayList samaraliroq va xavfsizroq.)
-      
-      Agar o‘qish va yozish operatsiyalari teng yoki yozishlar ko‘proq bo‘lsa, Vector ko‘proq ma'qul bo‘lishi mumkin, chunki u nusxa yaratmasdan yozadi.
-      
-      random - bu bir qancha random raqam va boshqa turdagi ammalarni olishimiz uchun.
-      
-Asosiy methodlar.
+**Core Variables:**
+- `listOfFish` - A list of fish stored using **CopyOnWriteArrayList** for thread safety.
+- `random` - Used to generate random values for fish characteristics.
 
-      addFish() - bu method bizga yangi baliqni akvariumga qo'shish uchun.
-      
-      removeFish - bu baliq o'lgandan so'ng akvariumdan uni o'chirib yuborish uchun.
-      
-      checkForMate - bu ikki baliq uchrashgan yoki uchrashmaganligini tekshirish uchun.
-      
-      createNewFish() - bu yangi baliq yaratish uchun.
-      
-_Main classi_
+**Core Methods:**
+- `addFish()` - Adds a new fish to the aquarium.
+- `removeFish()` - Removes a fish once it dies.
+- `checkForMate()` - Checks if two fish can meet and reproduce.
+- `createNewFish()` - Creates a new fish.
 
-    Bu classda biz yozgan classlarimizni ishlatib koramiz. Agarda sizga bu qiziq bo'lsa kodni yaxshilab analiz qilishingizni so'rab qolamiz. Rahmat
+### 3. **Main Class**
+
+This class initializes and runs the simulation by creating fish and aquariums and starts the program.
+
+---
+
+## Why CopyOnWriteArrayList?
+
+The `CopyOnWriteArrayList` was chosen for thread safety when managing fish in the aquarium. While there are other thread-safe collections like **Vector**, `CopyOnWriteArrayList` is more suitable here because:
+
+- **For more reading and less writing** operations, `CopyOnWriteArrayList` is more efficient and safer.
+- **For equal or more writing** operations, `Vector` may be preferable since it writes without creating a copy.
+
+---
+
+## How the Simulation Works
+
+- Randomly generate the number of male and female fish.
+- Each fish is a separate thread.
+- Fish can meet, reproduce, and die, with all actions logged to the console.
+- The simulation continues until all fish have died.
+
+---
+
+Thank you for exploring this project! If you are curious about how the classes work, I encourage you to analyze the code carefully. 😊
+
+---
