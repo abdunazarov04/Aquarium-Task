@@ -3,15 +3,16 @@ Aquarium, which is common in multithreading in java.
 **⚠️Sizda ortiqcha 15 daqiqa vaqtingiz bo'lsa buni o'qishni maslahat beraman.⚠️**
 
 **UZ** - **Java** dasturlash tilida Thread, umuman olganda Multithreading juda ko'p qo'llaniladi.
+
 _Nega?_
+
 **Sababi Multithreading dastur samaradorligini tubdan o'zgartrib yuborishi mumkin**
 
-_Qanday ?
+Qanday ?
 O'zi thread nima ?,
 Bu faqat javada shundaymi ?
 Nega multithreading deyiladi ?,
-Shu kabi savollar sizda bo'lsa shoshilmang tariflashga harakat qilaman._
-
+Shu kabi savollar sizda bo'lsa shoshilmang tariflashga harakat qilaman
 
 Thread to'g'ridan to'gri tarjima qilinganda ip deb aytiladi ammo biz uni tarjima qilmasdan thread deb ketsak odobdan bo'ladi 😊
 threadlarni vazifasi sodda qilib aytdanda bir ish buyurilsa uni bajarish, yani aytilgan ishni bajaruvchi ekan.
@@ -20,6 +21,7 @@ Multithreading esa threadlarga berilgan tarifni murakkabroq ko'rinishi, 1 ta thr
 multithreadingda bir qancha threadlar aytilgan 1 ichni 1 daqiqada bajaradi. 
 
 _Nima o'zgardi ?_
+
 Vaqtdan yutildi, yani threadlar ishchi sifatida tasvirlasak 1 ishchi 1 ishni 10 daqiqada bajarsa bir qancha ishchilar 1 ta ishni 1 daqiqada bajaradi,
 adashmasam ish tezligi 10 yoki 9 barobarga oshdi.
 
@@ -51,6 +53,7 @@ Endi asosiy mavzuga to'xtalib o'tamiz, Aquarium topshirig'i bu biroz murakkab va
     aniqlanadi.
   - Agar erkak va urg’ochi baliqlar uchrashib qolishsa ular nasl qoldirishi kerak. Yangi
     tug'ilgan har bir baliqning jinsi Random orqali aniqlanadi.
+
 ----------------------------------------------------------------------------------------------------
 
 _Biz talablarni ko'rib chiqdik va yechim qidirishga tushdik._
@@ -59,12 +62,15 @@ Bizda asosiy 3 ta class mavjud
                               {Fish, Aquarium, Main}
 
 Class - Fish
+
     Bu class bizga baliq yaratilishni taminlovchi sifatida hizmat qiladi.
     
 Class - Aquarium
+
     Bu class bizga Fishlarni yani baliqlarni jamlash, tekshirish, yaratish va o'chirish uchun kerak.
     
 Class - Main 
+
     Bu bizning asosiy classimiz Fish hamda Aquariumni yaratish va dasturni ishga tushirish uchun yordam beradi.
 
 
@@ -75,12 +81,14 @@ _Fish classi._
   Bizga shart davomida aytilganki har bir baliq alohida bir thread bo'lib yaratilishi kerak bunda biz **Fish extends Thread _yoki_ Runnable** dan foydalanishimiz mumkin.
 
 Asosiy o'zgaruvchilar.
+
         _fishGender - baliq jinsi.
         fishLifeSpan - baliq umri.
         akvarium - baliqning akvariumi._
 va biz bu o'zgaruvchilarga qiymatlarni Constructor orqali berishga majburmiz.
 
 Asosiy methodlar.
+
        getFishGender() - baliqning jinsini olish yoki tekshirish uchun kerak.
        run() thread ishga tushishi uchun @Override qilinadi.
        agar run methodidagi logikaga qiziqsangiz koddan ko'rishingiz mumkin.
