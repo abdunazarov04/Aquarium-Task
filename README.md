@@ -66,6 +66,7 @@ Class - Main
 
 
 **Endi har bir classda qanday functionlari mavjudligi haqida.**
+
 _Fish classi._
 
   Bizga shart davomida aytilganki har bir baliq alohida bir thread bo'lib yaratilishi kerak bunda biz **Fish extends Thread _yoki_ Runnable** dan foydalanishimiz mumkin.
@@ -82,6 +83,7 @@ Asosiy methodlar.
        agar run methodidagi logikaga qiziqsangiz koddan ko'rishingiz mumkin.
        
 _Aquarium classi._
+
   Berilgan shart bo'yicha talablarni bajarishni boshlaymiz.
   
 Asosiy o'zgaruvchilar.
