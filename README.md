@@ -97,25 +97,4 @@ Asosiy methodlar.
       createNewFish() - bu yangi baliq yaratish uchun.
       
 _Main classi_
-    Bu classda biz yozgan classlarimizni ishlatib koramiz.
-
-public static void main(String[] args) {
-        Random random = new Random(); //yangi random objecti
-        Aquarium aquarium = new Aquarium();//yangi akvarium objecti
-        int numberOfMaleFish = random.nextInt(5) + 1;// akvariumda yaratilishi kerak bo'lgan erkak baliqlar soni
-        int numberOfFemaleFish = random.nextInt(5) + 1;// akvariumda yaratilishi kerak bo'lgan ayol baliqlar soni
-        //Nechta erkak baliq va nechta ayol baliq yaratilishi kerakligini random aniqlagach uni consolega chiqarish
-        System.out.println(Color.YELLOW + "In Aquarium " + numberOfMaleFish + " male fish and " + numberOfFemaleFish + " female fish" + Color.RESET);
-        //for bilan erkak baliqlarni random songa asoslangan holda yaratish
-        for (int i = 0; i < numberOfMaleFish; i++) {
-            int fishLifeSpan = random.nextInt(5) + 5;
-            Fish maleFish = new Fish("Male", fishLifeSpan, aquarium);
-            aquarium.addFish(maleFish);
-        }
-        //for bilan ayol baliqlarni random songa asoslangan holda yaratish
-        for (int i = 0; i < numberOfFemaleFish; i++) {
-            int fishLifeSpan = random.nextInt(5) + 5;
-            Fish femaleFish = new Fish("Female", fishLifeSpan, aquarium);
-            aquarium.addFish(femaleFish);
-        }
-    }
+    Bu classda biz yozgan classlarimizni ishlatib koramiz. Agarda sizga bu qiziq bo'lsa kodni yaxshilab analiz qilishingizni so'rab qolamiz. Rahmat
