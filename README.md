@@ -29,6 +29,7 @@ Yo'q albatta threadlar ko'plab dasturlash tillarida mavjud.
 Endi asosiy mavzuga to'xtalib o'tamiz, Aquarium topshirig'i bu biroz murakkab va threadlar bilan ishlash shart bo'lgan topshiriglar sirasiga kiradi.
 ----------------------------------------------------------------------------------------------------
 **Topshiriq mazmuni:**
+
     Teshaboy ukasi Boltaboy ga uning tug’ilgan kuniga akvarium bilan baliqlar sovg’a qildi.
     Bir necha kundan so’ng Teshaboyning o’zi ham baliqlarga qiziqa boshladi va o’ziga ham akvarium bilan baliqlar sotib oldi.
     Lekin baliqlarga qarash uchun Teshaboyning yetarlicha bo’sh vaqti yo’q edi. 
@@ -36,12 +37,14 @@ Endi asosiy mavzuga to'xtalib o'tamiz, Aquarium topshirig'i bu biroz murakkab va
     Bizning vazifangiz Teshaboyga dastur tuzishda yordam berish.
     
 **Dasturga bo’lgan talablar:**
+
   - Barcha qiymatlar Random orqali aniqlanishi kerak.
   - Collections lardan foydalanish kerak.
   - Har bir baliq alohida Thread da bo’lishi kerak.
   - Har bir sodir bo’layotgan jarayon haqida Console da xabar chiqish kerak.
 
 **Eslatma:**
+
   - Dastur tuzish vaqtida akvariumda N ta erkak va M ta urg’ochi baliqlar bor edi. N va M
     qiymati ham Random orqali aniqlanadi.
   - Har bir baliq o’zining yashash muddati mavjud va uning qiymati Random orqali
@@ -87,16 +90,27 @@ _Aquarium classi._
   Berilgan shart bo'yicha talablarni bajarishni boshlaymiz.
   
 Asosiy o'zgaruvchilar.
+
       listOfFish - bu baliqlarni saqlash uchun List turida CopyOnWriteArrayList (nega boshqa thread safe Collectionlar yo'qmi?
+      
       bor albatta misol uchun Vector collectoni bir qancha ustunliklari mavjuda ammo bizga kerakli natija bera olmasligi mukin.
+      
       Agar ko‘p o‘qish va kam yozish operatsiyalari mavjud bo‘lsa, CopyOnWriteArrayList samaraliroq va xavfsizroq.)
+      
       Agar o‘qish va yozish operatsiyalari teng yoki yozishlar ko‘proq bo‘lsa, Vector ko‘proq ma'qul bo‘lishi mumkin, chunki u nusxa yaratmasdan yozadi.
+      
       random - bu bir qancha random raqam va boshqa turdagi ammalarni olishimiz uchun.
+      
 Asosiy methodlar.
+
       addFish() - bu method bizga yangi baliqni akvariumga qo'shish uchun.
+      
       removeFish - bu baliq o'lgandan so'ng akvariumdan uni o'chirib yuborish uchun.
+      
       checkForMate - bu ikki baliq uchrashgan yoki uchrashmaganligini tekshirish uchun.
+      
       createNewFish() - bu yangi baliq yaratish uchun.
       
 _Main classi_
+
     Bu classda biz yozgan classlarimizni ishlatib koramiz. Agarda sizga bu qiziq bo'lsa kodni yaxshilab analiz qilishingizni so'rab qolamiz. Rahmat
