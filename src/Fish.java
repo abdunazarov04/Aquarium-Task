@@ -10,7 +10,7 @@ public class Fish extends Thread{
     }
 
 
-    public String getFishGender(){
+    public synchronized String getFishGender(){
         return fishGender;
     }
 
